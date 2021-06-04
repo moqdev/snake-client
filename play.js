@@ -1,12 +1,16 @@
 // establishes a connection with the game server
 const net = require('net');
 
+let strt;
 // setup interface to handle user input from stdin
 const setupInput = function () {
+  strt = result;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
+  stdin.on('data', handleUserInput);
+
   return stdin;
 };
 
